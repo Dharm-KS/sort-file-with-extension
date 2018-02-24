@@ -33,8 +33,11 @@ for files in filetree:
 #for key ,value in sorted(bigfiles.iteritems(),key=lambda (k,v):(v,k)):
 ff=sorted(bigfiles.items(),key=lambda x:x[1] ,reverse = True)
 
-
-for i in range(0,10):
+if(len(ff)>=10):
+	j=10
+else:
+	j=len(ff)
+for i in range(0,j):
 	print(ff[i])
 	print("\n")
 
@@ -46,4 +49,4 @@ for fil in filetree:
 		os.makedirs(domain)
 	if os.path.exists(domain+file_name(source_files)):
 		os.remove(domain+file_name(source_files))
-	shutil.copy(source_files, domain)
+	shutil.move(source_files, domain)
